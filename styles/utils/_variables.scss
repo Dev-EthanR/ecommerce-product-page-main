@@ -1,0 +1,73 @@
+@use "sass:map";
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+
+$base-width: 1110px;
+$base-ff: "Kumbh Sans", sans-serif;
+$border-radius: 10px;
+
+
+$font-sizes: (
+  "3xl": 4.4rem,
+  "2xl": 2.8rem,
+  "lg": 1.6rem,
+  "md": 1.5rem,
+  "sm": 1.3rem,
+  "xs": 1.2rem,
+);
+
+$font-weight: (
+    "bold": 700,
+    "regular": 400
+);
+
+$color-palette: (
+    "white": #fff,
+    "black": #000,
+    "grey-950": hsl(220deg, 13%, 13%),
+    "grey-500": hsl(219deg, 9%, 45%),
+    "grey-300": hsl(221deg, 22%, 81%),
+    "grey-100": hsl(219deg, 35%, 92%),
+    "grey-50": hsl(223deg, 64%, 98%),
+    "orange-500": hsl(26deg, 100%, 55%),
+    "orange-300": hsl(26deg, 100%, 71%)
+);
+
+$colors: (
+    "heading": "grey-950",
+    "text": "grey-500",
+    "primary": "orange-500",
+    "input-bg": "grey-50",
+    "bg": "white",
+    "btn-hover": 'orange-300'
+);
+
+$breakpoints: (
+    "mobile": 370px,
+    "tablet": 768px,
+    "desktop": 1024px
+);
+
+
+
+// Get color from platte or from the semantic palette
+@function getColor($colorKey) {
+    @if(map.has-key($colors, $colorKey)) {
+        $alias: map.get($colors, $colorKey);
+        @return map.get($color-palette, $alias);
+    } @else if (map.has-key($color-palette, $colorKey)) {
+        @return map.get($color-palette, $colorKey);
+    } @else {
+        @error "Invalid #{$colorKey}. Check the color again.";
+    }
+}
+
+// get font weights and font sizes
+@function getFont($typeKey) {
+    @if(map.has-key($font-sizes, $typeKey)) {
+        @return  map.get($font-sizes, $typeKey);
+    } @else if (map.has-key($font-weight, $typeKey)) {
+        @return map.get($font-weight, $typeKey);
+    } @else {
+        @error "Invalid #{$typeKey}. Must be either size or weight";
+    }
+}

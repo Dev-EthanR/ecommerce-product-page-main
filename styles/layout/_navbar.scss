@@ -1,0 +1,65 @@
+@use '../utils/utils' as *;
+
+.nav-container {
+    width: 100%;
+    max-width: $base-width;
+    @include flex(space-between);
+    @include baseMargin;
+ 
+    .user-nav {
+        @include flex(space-between);
+        gap: 2.4rem;
+    
+        img {
+            user-select: none;
+            height: 24px;
+            &.avatar {
+                @include screen("tablet") {
+                height: 50px;
+                transition: border-color 0.3s ease;
+                }
+                &:hover {
+                    cursor: pointer;
+                    border: 2px solid getColor('primary');
+                    border-radius: 50%;
+                }
+            }
+            &.cart {
+                $svg-cart: brightness(0) saturate(100%) invert(46%) sepia(4%) saturate(1109%) hue-rotate(176deg) brightness(92%) contrast(93%);
+                filter: $svg-cart;
+            }
+        }
+        @include screen ("tablet") {
+            gap: 4.8rem;
+        }
+    }
+
+    .main-nav {
+        @include flex;
+        gap: 1.6rem;
+        .menu-btn {
+            user-select: none;
+            $svg-menu: brightness(0) saturate(100%) invert(46%) sepia(4%) saturate(1109%) hue-rotate(176deg) brightness(92%) contrast(93%);
+            $svg-menu-hover: brightness(0) saturate(100%) invert(65%) sepia(47%) saturate(5042%) hue-rotate(348deg) brightness(102%) contrast(100%);
+            margin-top: 0.8rem;
+            filter: $svg-menu;
+            &:hover {
+                cursor: pointer;
+                filter: $svg-menu-hover;
+            }
+        }
+        @include screen("desktop") {
+            gap: 4.8rem;
+            .menu-btn {
+                display: none;
+            }
+        }
+    }
+    .nav-links {
+        @include screen("desktop", max) {
+            display: none
+        }
+        @include flex(space-between);
+        gap: 3.2rem;
+    }
+}

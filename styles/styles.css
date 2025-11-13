@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap");
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ul, ol {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background-color: inherit;
+  border: none;
+  outline-offset: 3px;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+body {
+  line-height: 1.5;
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: hsl(219, 9%, 45%);
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 1.6rem;
+  }
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1110px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2.4rem;
+}
+@media (min-width: 768px) {
+  .nav-container {
+    margin: 3rem 5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .nav-container {
+    margin: 3rem 12.5vw;
+  }
+}
+.nav-container .user-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.4rem;
+}
+.nav-container .user-nav img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  height: 24px;
+}
+@media (min-width: 768px) {
+  .nav-container .user-nav img.avatar {
+    height: 50px;
+    transition: border-color 0.3s ease;
+  }
+}
+.nav-container .user-nav img.avatar:hover {
+  cursor: pointer;
+  border: 2px solid hsl(26, 100%, 55%);
+  border-radius: 50%;
+}
+.nav-container .user-nav img.cart {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(4%) saturate(1109%) hue-rotate(176deg) brightness(92%) contrast(93%);
+}
+@media (min-width: 768px) {
+  .nav-container .user-nav {
+    gap: 4.8rem;
+  }
+}
+.nav-container .main-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+}
+.nav-container .main-nav .menu-btn {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  margin-top: 0.8rem;
+  filter: brightness(0) saturate(100%) invert(46%) sepia(4%) saturate(1109%) hue-rotate(176deg) brightness(92%) contrast(93%);
+}
+.nav-container .main-nav .menu-btn:hover {
+  cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(65%) sepia(47%) saturate(5042%) hue-rotate(348deg) brightness(102%) contrast(100%);
+}
+@media (min-width: 1024px) {
+  .nav-container .main-nav {
+    gap: 4.8rem;
+  }
+  .nav-container .main-nav .menu-btn {
+    display: none;
+  }
+}
+.nav-container .nav-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3.2rem;
+}
+@media (max-width: 1024px) {
+  .nav-container .nav-links {
+    display: none;
+  }
+}/*# sourceMappingURL=styles.css.map */

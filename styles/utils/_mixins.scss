@@ -1,0 +1,25 @@
+@use "sass:map";
+@use './variables' as *;
+
+@mixin screen($screenSize, $minMax: min) {
+    @media (#{$minMax}-width: map.get($breakpoints, $screenSize)) {
+        @content;
+    }
+}
+
+@mixin flex($jusifty: center, $direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $jusifty;
+    align-items: center;
+}
+
+@mixin baseMargin {
+    margin: 2.4rem;
+    @include screen("tablet") {
+        margin: 3rem 5rem;
+    }
+    @include screen("desktop") {
+        margin: 3rem 12.5vw;
+    }
+}

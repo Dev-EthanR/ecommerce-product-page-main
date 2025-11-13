@@ -1,0 +1,43 @@
+@use '../utils/utils' as *;
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+ul, ol {
+    list-style-type: none
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    background-color: inherit;
+    border: none;
+    outline-offset: 3px;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+body {
+    line-height: 1.5;
+    font-family: $base-ff;
+    font-weight: getFont('regular');
+    font-size: getFont("md");
+    color: getColor("text");
+    @include screen("tablet") {
+        font-size: getFont("lg");
+    }
+    display: flex;
+    justify-content: center;
+}
