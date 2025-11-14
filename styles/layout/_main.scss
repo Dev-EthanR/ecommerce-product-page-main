@@ -7,9 +7,63 @@
     grid-template-columns: 1fr;
     justify-items: center;
     @include screen('desktop') {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 500px);
+        gap: 12.8rem;
         align-items: center;
     }
+    .company-name {
+        letter-spacing: 1.85px;
+        text-transform: uppercase;
+        font-size: getFont('xs');
+        font-weight: getFont('bold');
+        margin-bottom: 1.6rem;
+        @include screen("tablet") {
+            font-size: getFont('sm');
+        }
+    }
+    .item-heading {
+        color: getColor('heading');
+        font-size: getFont("2xl");
+        margin-bottom: 1.6rem;
+        @include screen("tablet") {
+            font-size: getFont('3xl');
+        }
+    }
+    .item-desc {
+        line-height: 1.7;
+        margin-bottom: 3.2rem;
+    }.current-price-container {
+        @include flex(flex-start);
+        gap: 1.6rem;
+        .price {
+            color: getColor('heading');
+            font-weight: getFont('bold');
+            font-size: getFont('2xl');
+        }
+        .discount-label {
+            padding: 0.3rem 1rem;
+            border-radius: 8px;
+            background-color: getColor('grey-950');
+            color: getColor('white');
+            margin-bottom: 0.4rem;
+            font-weight: getFont('bold');
+            font-size: getFont('lg')     
+        }
+    }
+    .orginal-price {
+        text-decoration: line-through;
+        font-size: getFont('lg');
+        font-weight: getFont('bold')
+    }
+     
+    @include screen('tablet', max) {
+        .price-container {
+           @include flex(space-between);
+        }
+    }
+}
+.purchase-section {
+    padding: 2rem;
 }
 
 .hidden {
