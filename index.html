@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
+    <!-- Nav Bar -->
     <nav class="nav-container">
       <div class="main-nav">
         <button class="menu-btn">
@@ -35,6 +36,29 @@
         <img class="avatar" src="images/image-avatar.png" alt="user avatar" />
       </div>
     </nav>
+
+    <!-- Img Carousel -->
+    <section class="carousel-container">
+      <div class="slideImg slide">
+        <img id="product-1" src="images/image-product-1.jpg" alt="" />
+      </div>
+      <div class="slideImg slide">
+        <img id="product-2" src="images/image-product-2.jpg" alt="" />
+      </div>
+      <div class="slideImg slide">
+        <img id="product-3" src="images/image-product-3.jpg" alt="" />
+      </div>
+      <div class="slideImg slide">
+        <img id="product-4" src="images/image-product-4.jpg" alt="" />
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)"
+        ><img src="images/icon-previous.svg" alt=""
+      /></a>
+      <a class="next" onclick="plusSlides(1)">
+        <img src="images/icon-next.svg" alt="" />
+      </a>
+    </section>
     <!-- 
   
   
@@ -55,5 +79,6 @@
   0
   Add to cart
    -->
+    <script src="index.js"></script>
   </body>
 </html>

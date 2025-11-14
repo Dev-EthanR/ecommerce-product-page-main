@@ -1,0 +1,101 @@
+@use '../utils/utils' as *;
+.carousel-container {
+    max-width: 608px;
+    position: relative;
+    margin: auto;
+    .slideImg {
+        img {
+            width: 100%;
+            @include screen('tablet') {
+                border-radius: 15px;
+                @include screen('desktop', max) {
+                    height: 290px;
+                    object-fit:cover;
+                    width: 608px;
+                    &#product-1 {
+                        object-position: 20% 65%; 
+                    }
+                    &#product-2 {
+                        object-position: 20% 0%;
+                    }
+                    &#product-3 {
+                        object-position: 20% 10%;
+                    }
+                    &#product-4 {
+                        object-position: 20% 32%;
+                    }
+                }
+            }
+        }
+    }
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        margin-top: -22px;
+        $buttonMargin: 2.2rem;
+        margin-left: $buttonMargin;
+        margin-right: $buttonMargin;
+        background-color: getColor("white");
+        color: getColor("white");
+        font-weight: getFont("bold");
+        font-size: 1.8rem;
+        border-radius: 50%;
+        user-select: none;
+        img {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+        &:hover {
+           img {
+            $svg-hover:  brightness(0) saturate(100%) invert(65%) sepia(47%) saturate(5042%) hue-rotate(348deg) brightness(102%) contrast(100%);
+            filter: $svg-hover;
+           }
+        }
+    }
+    .next {
+        right: 0;
+        img {
+            right: 12px;
+        }
+    }
+    .slide {
+        animation-name: slide, snap;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+    }
+    
+}
+
+@keyframes slide {
+    75% {
+        left: 0;
+    }
+    95% {
+        left: 100%;
+    }
+    98% {
+        left: 100%;
+    }
+    99% {
+        left: 0;
+    }
+}
+
+@keyframes snap {
+  96% {
+    scroll-snap-align: center;
+  }
+  97% {
+    scroll-snap-align: none;
+  }
+  99% {
+    scroll-snap-align: none;
+  }
+  100% {
+    scroll-snap-align: center;
+  }
+}

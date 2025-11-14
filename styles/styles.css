@@ -7,6 +7,7 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 ul, ol {
@@ -35,7 +36,8 @@ body {
   font-size: 1.5rem;
   color: hsl(219, 9%, 45%);
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 @media (min-width: 768px) {
   body {
@@ -50,16 +52,23 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 2.4rem;
+  padding: 2.4rem;
 }
 @media (min-width: 768px) {
   .nav-container {
-    margin: 3rem 5rem;
+    padding: 3rem 5rem;
   }
 }
 @media (min-width: 1024px) {
   .nav-container {
-    margin: 3rem 12.5vw;
+    padding: 3rem 12.5vw;
+  }
+}
+@media (min-width: 768px) {
+  .nav-container {
+    border-bottom: 2px solid hsl(219, 35%, 92%);
+    padding-bottom: 3.2rem;
+    margin-bottom: 4.8rem;
   }
 }
 .nav-container .user-nav {
@@ -83,11 +92,15 @@ body {
 }
 .nav-container .user-nav img.avatar:hover {
   cursor: pointer;
-  border: 2px solid hsl(26, 100%, 55%);
+  outline: 2px solid hsl(26, 100%, 55%);
   border-radius: 50%;
 }
 .nav-container .user-nav img.cart {
   filter: brightness(0) saturate(100%) invert(46%) sepia(4%) saturate(1109%) hue-rotate(176deg) brightness(92%) contrast(93%);
+}
+.nav-container .user-nav img.cart:hover {
+  filter: brightness(0) saturate(100%) invert(12%) sepia(3%) saturate(1728%) hue-rotate(156deg) brightness(98%) contrast(98%);
+  cursor: pointer;
 }
 @media (min-width: 768px) {
   .nav-container .user-nav {
@@ -130,5 +143,109 @@ body {
 @media (max-width: 1024px) {
   .nav-container .nav-links {
     display: none;
+  }
+}
+
+.carousel-container {
+  max-width: 608px;
+  position: relative;
+  margin: auto;
+}
+.carousel-container .slideImg img {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .carousel-container .slideImg img {
+    border-radius: 15px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .carousel-container .slideImg img {
+    height: 290px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 608px;
+  }
+  .carousel-container .slideImg img#product-1 {
+    -o-object-position: 20% 65%;
+       object-position: 20% 65%;
+  }
+  .carousel-container .slideImg img#product-2 {
+    -o-object-position: 20% 0%;
+       object-position: 20% 0%;
+  }
+  .carousel-container .slideImg img#product-3 {
+    -o-object-position: 20% 10%;
+       object-position: 20% 10%;
+  }
+  .carousel-container .slideImg img#product-4 {
+    -o-object-position: 20% 32%;
+       object-position: 20% 32%;
+  }
+}
+.carousel-container .prev, .carousel-container .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -22px;
+  margin-left: 2.2rem;
+  margin-right: 2.2rem;
+  background-color: #fff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.carousel-container .prev img, .carousel-container .next img {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+.carousel-container .prev:hover img, .carousel-container .next:hover img {
+  filter: brightness(0) saturate(100%) invert(65%) sepia(47%) saturate(5042%) hue-rotate(348deg) brightness(102%) contrast(100%);
+}
+.carousel-container .next {
+  right: 0;
+}
+.carousel-container .next img {
+  right: 12px;
+}
+.carousel-container .slide {
+  animation-name: slide, snap;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes slide {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  99% {
+    left: 0;
+  }
+}
+@keyframes snap {
+  96% {
+    scroll-snap-align: center;
+  }
+  97% {
+    scroll-snap-align: none;
+  }
+  99% {
+    scroll-snap-align: none;
+  }
+  100% {
+    scroll-snap-align: center;
   }
 }/*# sourceMappingURL=styles.css.map */

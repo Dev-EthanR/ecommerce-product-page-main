@@ -14,12 +14,12 @@
     align-items: center;
 }
 
-@mixin baseMargin {
-    margin: 2.4rem;
+@mixin basePadding {
+    padding: 2.4rem;
     @include screen("tablet") {
-        margin: 3rem 5rem;
+        padding: 3rem 5rem;
     }
     @include screen("desktop") {
-        margin: 3rem 12.5vw;
+        padding: 3rem 12.5vw;
     }
 }
