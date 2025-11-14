@@ -253,6 +253,7 @@ body {
   margin-bottom: 5px;
 }
 .container .input-group .input-field {
+  width: 300px;
   font-weight: 700;
   color: hsl(220, 13%, 13%);
 }

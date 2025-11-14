@@ -25,3 +25,19 @@ function showSlides(currentSlide) {
     thumbnail[slideIndex-1].classList.add("active")
     thumbnail[slideIndex-1].lastElementChild.style.opacity = 0.4;
 }
+
+function changeQauntity(delta) {
+    const input = document.getElementById('quantityInput');
+    let currentNumber = parseFloat(input.value);
+    if(!currentNumber) currentNumber = 0;
+    if(currentNumber + delta < 0) return;
+    input.value =  currentNumber + delta;;
+ 
+}
+
+function limitNumberLength(inputElement) {
+    const maxLength = 7;
+    if (inputElement.value.length > maxLength) {
+        inputElement.value = inputElement.value.slice(0, maxLength);
+    }
+}

@@ -92,6 +92,7 @@
             margin-bottom: 5px;
         }
         .input-field {
+            width: 300px;
             font-weight: getFont('bold');
             color: getColor('heading');
             &::-webkit-outer-spin-button,
