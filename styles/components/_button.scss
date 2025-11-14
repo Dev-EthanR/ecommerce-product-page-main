@@ -1,0 +1,23 @@
+@use '../utils/utils' as *;
+
+.btn {
+    @include flex;
+    width: 100%;
+    max-height: 5.6rem;
+    gap: 1.6rem;
+    padding: 1.6rem 7.2rem;
+    background-color: getColor('primary');
+    border-radius: $border-radius;
+    font-weight: getFont('bold');
+    img {
+        width: 1.6rem;
+        height: 100%;
+        filter: brightness(0) saturate(100%) invert(12%) sepia(3%) saturate(1728%) hue-rotate(156deg) brightness(98%) contrast(98%);
+    }
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: getColor("btn-hover");
+        cursor: pointer;
+    }
+    box-shadow: 0 5px 25px getColor('box-shadow');
+}

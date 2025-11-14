@@ -11,6 +11,7 @@
         gap: 12.8rem;
         align-items: center;
     }
+    // Item Details
     .company-name {
         letter-spacing: 1.85px;
         text-transform: uppercase;
@@ -32,7 +33,8 @@
     .item-desc {
         line-height: 1.7;
         margin-bottom: 3.2rem;
-    }.current-price-container {
+    }
+    .current-price-container {
         @include flex(flex-start);
         gap: 1.6rem;
         .price {
@@ -61,9 +63,67 @@
            @include flex(space-between);
         }
     }
+     .price-container { 
+        margin-bottom: 1.6rem;
+     }
+
+    // Order Input
+    .input-group {
+        background-color: getColor('input-bg');
+        padding: 1.6rem 0.8rem;
+        border-radius: $border-radius;
+        max-height: 5.6rem;
+        width: 100%;
+        @include screen("desktop") {
+            max-width: 16rem;      
+        }
+        @include flex(space-between);
+        .minus, .plus {
+            user-select: none;
+            cursor: pointer;
+            &:hover {
+                $svg-btn-hover: brightness(0) saturate(100%) invert(87%) sepia(61%) saturate(4921%) hue-rotate(307deg) brightness(100%) contrast(99%);
+                img {
+                    filter: $svg-btn-hover;
+                }
+            }
+        }
+        .minus {
+            margin-bottom: 5px;
+        }
+        .input-field {
+            font-weight: getFont('bold');
+            color: getColor('heading');
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+            }
+            &[type=number] {
+                -moz-appearance: textfield;
+            }
+        }
+        .input-field, button {
+            background-color: inherit;
+            text-align: center;
+            border: none;
+            outline: none;
+            width: 6rem;
+        
+        }
+        
+    }
 }
 .purchase-section {
     padding: 2rem;
+}
+
+.cart-adding {
+    @include flex;
+    @include screen("tablet", max) {
+        flex-direction: column;
+    }
+    gap: 1.6rem;
 }
 
 .hidden {

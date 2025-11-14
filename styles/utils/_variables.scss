@@ -29,7 +29,8 @@ $color-palette: (
     "grey-100": hsl(219deg, 35%, 92%),
     "grey-50": hsl(223deg, 64%, 98%),
     "orange-500": hsl(26deg, 100%, 55%),
-    "orange-300": hsl(26deg, 100%, 71%)
+    "orange-300": hsl(26deg, 100%, 71%),
+    'box-shadow': hsla(26deg, 100%, 55%, 0.5)
 );
 
 $colors: (

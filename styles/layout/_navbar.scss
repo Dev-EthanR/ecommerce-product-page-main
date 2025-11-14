@@ -18,7 +18,6 @@
         gap: 2.4rem;
     
         img {
-            user-select: none;
             height: 24px;
             &.avatar {
                 @include screen("tablet") {
@@ -32,6 +31,7 @@
                 }
             }
             &.cart {
+                user-select: none;
                 $svg-cart: brightness(0) saturate(100%) invert(46%) sepia(4%) saturate(1109%) hue-rotate(176deg) brightness(92%) contrast(93%);
                 $svg-cart-hover: brightness(0) saturate(100%) invert(12%) sepia(3%) saturate(1728%) hue-rotate(156deg) brightness(98%) contrast(98%);
                 filter: $svg-cart;
