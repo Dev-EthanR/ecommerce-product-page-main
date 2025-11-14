@@ -1,0 +1,17 @@
+@use '../utils/utils' as *;
+
+.container {
+    width: 100%;
+    max-width: $base-width;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    @include screen('desktop') {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+}
+
+.hidden {
+    display: none;
+}

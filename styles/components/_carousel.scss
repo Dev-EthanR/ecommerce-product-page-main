@@ -2,6 +2,10 @@
 .carousel-container {
     position: relative;
     width: 100%;
+    max-width: 768px;
+    .thumbnails-container {
+        display: none;
+    }
     .slideImg {
         img {
             width: 100%;
@@ -38,9 +42,6 @@
         margin-left: $buttonMargin;
         margin-right: $buttonMargin;
         background-color: getColor("white");
-        color: getColor("white");
-        font-weight: getFont("bold");
-        font-size: 1.8rem;
         border-radius: 50%;
         user-select: none;
         img {
@@ -66,11 +67,48 @@
         animation-duration: 0.4s;
     }
      @include screen("tablet") {
-        @include basePadding;
+        @include BaseSideSpacing;
+        .next  {
+            right: 20px;
+        }
         .slideImg img {
             width: 100%
         }
     }
+    @include screen("desktop") {
+        .next, .prev {
+            display: none;
+        }
+        .slideImg img {
+            max-width: 450px;
+            aspect-ratio: 1 / 1;
+        }
+        .thumbnails-container {
+            margin-top: 3.2rem;
+            display: flex;
+            max-width: 200px;
+            gap: 32px;
+            .image-thumbnail {
+                &:hover {
+                    opacity: 0.6;
+                    cursor: pointer;
+                }
+                &.active {
+                    outline: 2px solid getColor("primary");
+                    border-radius: 10px;
+                }
+                
+                img {
+                    border-radius: 10px;
+                    width: 88px;
+                     height: 100%;
+
+                    
+                }
+            }
+        }
+    }
+  
     
 }
 

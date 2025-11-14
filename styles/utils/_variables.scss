@@ -47,8 +47,6 @@ $breakpoints: (
     "desktop": 1024px
 );
 
-
-
 // Get color from platte or from the semantic palette
 @function getColor($colorKey) {
     @if(map.has-key($colors, $colorKey)) {
