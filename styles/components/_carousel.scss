@@ -1,30 +1,29 @@
 @use '../utils/utils' as *;
 .carousel-container {
-    max-width: 608px;
     position: relative;
-    margin: auto;
+    width: 100%;
     .slideImg {
         img {
             width: 100%;
+             @include screen('desktop', max) {
+                height: 300px;
+                object-fit:cover;
+                &#product-1 {
+                    object-position: 20% 65%; 
+                }
+                &#product-2 {
+                    object-position: 20% 0%;
+                }
+                &#product-3 {
+                    object-position: 20% 10%;
+                }
+                &#product-4 {
+                    object-position: 20% 32%;
+                }
+            }
             @include screen('tablet') {
                 border-radius: 15px;
-                @include screen('desktop', max) {
-                    height: 290px;
-                    object-fit:cover;
-                    width: 608px;
-                    &#product-1 {
-                        object-position: 20% 65%; 
-                    }
-                    &#product-2 {
-                        object-position: 20% 0%;
-                    }
-                    &#product-3 {
-                        object-position: 20% 10%;
-                    }
-                    &#product-4 {
-                        object-position: 20% 32%;
-                    }
-                }
+               
             }
         }
     }
@@ -63,39 +62,24 @@
         }
     }
     .slide {
-        animation-name: slide, snap;
-        animation-duration: 1.5s;
-        animation-iteration-count: infinite;
+        animation-name: fade;
+        animation-duration: 0.4s;
+    }
+     @include screen("tablet") {
+        @include basePadding;
+        .slideImg img {
+            width: 100%
+        }
     }
     
 }
 
-@keyframes slide {
-    75% {
-        left: 0;
-    }
-    95% {
-        left: 100%;
-    }
-    98% {
-        left: 100%;
-    }
-    99% {
-        left: 0;
-    }
-}
+@keyframes fade {
+    from {
+        opacity: 0.3;
 
-@keyframes snap {
-  96% {
-    scroll-snap-align: center;
-  }
-  97% {
-    scroll-snap-align: none;
-  }
-  99% {
-    scroll-snap-align: none;
-  }
-  100% {
-    scroll-snap-align: center;
-  }
+    }
+    to {
+        opacity: 1;
+    }
 }

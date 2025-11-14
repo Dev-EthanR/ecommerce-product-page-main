@@ -68,7 +68,7 @@ body {
   .nav-container {
     border-bottom: 2px solid hsl(219, 35%, 92%);
     padding-bottom: 3.2rem;
-    margin-bottom: 4.8rem;
+    margin-bottom: 1.8rem;
   }
 }
 .nav-container .user-nav {
@@ -147,24 +147,17 @@ body {
 }
 
 .carousel-container {
-  max-width: 608px;
   position: relative;
-  margin: auto;
+  width: 100%;
 }
 .carousel-container .slideImg img {
   width: 100%;
 }
-@media (min-width: 768px) {
+@media (max-width: 1024px) {
   .carousel-container .slideImg img {
-    border-radius: 15px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-  .carousel-container .slideImg img {
-    height: 290px;
+    height: 300px;
     -o-object-fit: cover;
        object-fit: cover;
-    width: 608px;
   }
   .carousel-container .slideImg img#product-1 {
     -o-object-position: 20% 65%;
@@ -181,6 +174,11 @@ body {
   .carousel-container .slideImg img#product-4 {
     -o-object-position: 20% 32%;
        object-position: 20% 32%;
+  }
+}
+@media (min-width: 768px) {
+  .carousel-container .slideImg img {
+    border-radius: 15px;
   }
 }
 .carousel-container .prev, .carousel-container .next {
@@ -216,36 +214,35 @@ body {
   right: 12px;
 }
 .carousel-container .slide {
-  animation-name: slide, snap;
-  animation-duration: 1.5s;
-  animation-iteration-count: infinite;
+  animation-name: fade;
+  animation-duration: 0.4s;
+}
+@media (min-width: 768px) {
+  .carousel-container {
+    padding: 2.4rem;
+  }
+}
+@media (min-width: 768px) and (min-width: 768px) {
+  .carousel-container {
+    padding: 3rem 5rem;
+  }
+}
+@media (min-width: 768px) and (min-width: 1024px) {
+  .carousel-container {
+    padding: 3rem 12.5vw;
+  }
+}
+@media (min-width: 768px) {
+  .carousel-container .slideImg img {
+    width: 100%;
+  }
 }
 
-@keyframes slide {
-  75% {
-    left: 0;
+@keyframes fade {
+  from {
+    opacity: 0.3;
   }
-  95% {
-    left: 100%;
-  }
-  98% {
-    left: 100%;
-  }
-  99% {
-    left: 0;
-  }
-}
-@keyframes snap {
-  96% {
-    scroll-snap-align: center;
-  }
-  97% {
-    scroll-snap-align: none;
-  }
-  99% {
-    scroll-snap-align: none;
-  }
-  100% {
-    scroll-snap-align: center;
+  to {
+    opacity: 1;
   }
 }/*# sourceMappingURL=styles.css.map */
