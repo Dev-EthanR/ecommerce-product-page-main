@@ -31,37 +31,8 @@
             }
         }
     }
-    .prev, .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: 40px;
-        height: 40px;
-        margin-top: -22px;
-        $buttonMargin: 2.2rem;
-        margin-left: $buttonMargin;
-        margin-right: $buttonMargin;
-        background-color: getColor("white");
-        border-radius: 50%;
-        user-select: none;
-        img {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-        }
-        &:hover {
-           img {
-            $svg-hover:  brightness(0) saturate(100%) invert(65%) sepia(47%) saturate(5042%) hue-rotate(348deg) brightness(102%) contrast(100%);
-            filter: $svg-hover;
-           }
-        }
-    }
-    .next {
-        right: 0;
-        img {
-            right: 12px;
-        }
-    }
+    @include carouselButton;
+  
     .slide {
         animation-name: fade;
         animation-duration: 0.4s;
@@ -82,29 +53,10 @@
         .slideImg img {
             max-width: 450px;
             height: 100%;
+            cursor: pointer;
         }
         .thumbnails-container {
-            margin-top: 3.2rem;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            max-width: 200px;
-            gap: 32px;
-            .image-thumbnail {
-                &:hover {
-                    opacity: 0.6;
-                    cursor: pointer;
-                }
-                &.active {
-                    outline: 2px solid getColor("primary");
-                    border-radius: 10px;
-                }
-                
-                img {
-                    border-radius: 10px;
-                    width: 88px;
-                    height: 100%;
-                }
-            }
+            @include carouselThumbnails;
         }
     }
   
@@ -118,5 +70,44 @@
     }
     to {
         opacity: 1;
+    }
+}
+
+.carousel-expanded {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    max-width: 550px;
+    
+    .expanded-slideImg {
+       img {
+         width: 100%;
+        border-radius: 15px;
+       }
+    }
+    @include carouselButton;
+    .next, .prev {
+        top: 40%;
+    }
+    .next {
+        right: -40px;
+    }
+    .prev {
+        left: -40px;
+    }
+    .expanded-thumbnails-container {
+        @include carouselThumbnails;
+        margin-left: 5rem;
+    }
+    .closeBtn {
+        float: right;
+        filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(170deg) brightness(104%) contrast(101%);
+        margin-bottom: 2rem;
+        width: 20px;
+        &:hover {
+            cursor: pointer;
+            $svg-hover:  brightness(0) saturate(100%) invert(65%) sepia(47%) saturate(5042%) hue-rotate(348deg) brightness(102%) contrast(100%);
+            filter: $svg-hover;
+        }
     }
 }

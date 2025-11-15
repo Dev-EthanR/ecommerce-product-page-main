@@ -1,7 +1,6 @@
 @use '../utils/utils' as *;
 
 .btn {
-    @include flex;
     width: 100%;
     max-height: 5.6rem;
     gap: 1.6rem;
@@ -19,5 +18,11 @@
         background-color: getColor("btn-hover");
         cursor: pointer;
     }
+}
+.btn-flex {
+    @include flex;
+}
+
+.btn-shadow {
     box-shadow: 0 5px 25px getColor('box-shadow');
 }

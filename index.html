@@ -16,14 +16,18 @@
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
+    <div id="focusState" class="dark-focus hidden"></div>
     <!-- Nav Bar -->
     <nav class="nav-container">
       <div class="main-nav">
-        <button class="menu-btn">
+        <button id="menuBtn" class="menu-btn" onclick="navMenu(true)">
           <img src="images/icon-menu.svg" alt="menu button" />
         </button>
         <img src="images/logo.svg" alt="Sneakers Logo" />
-        <ul class="nav-links">
+        <ul id="navMenu" class="nav-links">
+          <button id="menuClose" class="close-btn hidden" onclick="navMenu(false)">
+              <img src="images/icon-close.svg" alt="">
+          </button>
           <li class="nav-item"><a href="#">Collections</a></li>
           <li class="nav-item"><a href="#">Men</a></li>
           <li class="nav-item"><a href="#">Women</a></li>
@@ -32,7 +36,31 @@
         </ul>
       </div>
       <div class="user-nav">
-        <img class="cart" src="images/icon-cart.svg" alt="Shopping cart" />
+        <div class="cart">
+            <img id="cartBtn" role="button" class="cart-img" src="images/icon-cart.svg" alt="Shopping cart" />
+            <div id="cartQuantity" class="cart-quantity hidden"></div> 
+            <div id="cart" class="cart-container hidden">
+              <h2 class="cart-title">Cart</h2>
+              <div class="line"></div>
+              <div id="emptyCart">Your cart is empty.</div>
+              <div id="cardContent" class="cart-content">
+                <img class="cart-thumbnail" src="images/image-product-1-thumbnail.jpg" alt="">
+                <div class="cart-text">
+                  <p id="itemTitle"></p>
+                  <div>
+                  <span id="price" class="price">item price</span>
+                  <span id="totalPrice" class="total-price">price</span>
+
+                  </div>
+                </div>  
+                <button onclick="deleteFromCart()">
+                  <img class="delete-btn" src="images/icon-delete.svg" alt="">
+                </button>   
+              </div>
+              <button id="checkoutBtn" class="btn">Checkout</button>
+            </div>
+        </div>
+       
         <img class="avatar" src="images/image-avatar.png" alt="user avatar" />
       </div>
     </nav>
@@ -40,17 +68,19 @@
     <main class="container">
       <!-- Img Carousel -->
       <section class="carousel-container">
-        <div class="slideImg slide">
-          <img id="product-1" src="images/image-product-1.jpg" alt="" />
-        </div>
-        <div class="slideImg slide">
-          <img id="product-2" src="images/image-product-2.jpg" alt="" />
-        </div>
-        <div class="slideImg slide">
-          <img id="product-3" src="images/image-product-3.jpg" alt="" />
-        </div>
-        <div class="slideImg slide">
-          <img id="product-4" src="images/image-product-4.jpg" alt="" />
+        <div class="main-image">
+          <div class="slideImg slide">
+            <img id="product-1" src="images/image-product-1.jpg" alt="" />
+          </div>
+          <div class="slideImg slide">
+            <img id="product-2" src="images/image-product-2.jpg" alt="" />
+          </div>
+          <div class="slideImg slide">
+            <img id="product-3" src="images/image-product-3.jpg" alt="" />
+          </div>
+          <div class="slideImg slide">
+            <img id="product-4" src="images/image-product-4.jpg" alt="" />
+          </div>
         </div>
         <a class="prev" onclick="plusSlides(-1)"
           ><img src="images/icon-previous.svg" alt=""
@@ -89,17 +119,74 @@
           </span>
         </div>
       </section>
+      <!-- expanded Carousel -->
+      <section id="carosuelExpanded" class="carousel-expanded hidden">
+        <button class="closeBtn" onclick="expandedImage(true)">
+          <img src="images/icon-close.svg" alt="">
+        </button>
+        <div class="main-image">
+
+        <div class="expanded-slideImg slide">
+          <img id="expanded-product-1" src="images/image-product-1.jpg" alt="" />
+        </div>
+        <div class="expanded-slideImg slide">
+          <img id="expanded-product-2" src="images/image-product-2.jpg" alt="" />
+        </div>
+        <div class="expanded-slideImg slide">
+          <img id="expanded-product-3" src="images/image-product-3.jpg" alt="" />
+        </div>
+        <div class="expanded-slideImg slide">
+          <img id="expanded-product-4" src="images/image-product-4.jpg" alt="" />
+        </div>
+      </div>
+        <a class="prev" onclick="plusSlides(-1)"
+          ><img src="images/icon-previous.svg" alt=""
+        /></a>
+        <a class="next" onclick="plusSlides(1)">
+          <img src="images/icon-next.svg" alt="" />
+        </a>
+        <div class="expanded-thumbnails-container" id="expanded-thumbnails-container">
+          <span
+            class="expanded-image-thumbnail"
+            id="expanded-thumbnail-1"
+            onclick="currentSlide(1)"
+          >
+            <img src="images/image-product-1-thumbnail.jpg" alt="" />
+          </span>
+          <span
+            class="expanded-image-thumbnail"
+            id="expanded-thumbnail-2"
+            onclick="currentSlide(2)"
+          >
+            <img src="images/image-product-2-thumbnail.jpg" alt="" />
+          </span>
+          <span
+            class="expanded-image-thumbnail"
+            id="expanded-thumbnail-3"
+            onclick="currentSlide(3)"
+          >
+            <img src="images/image-product-3-thumbnail.jpg" alt="" />
+          </span>
+          <span
+            class="image-thumbnail"
+            id="expanded-thumbnail-4"
+            onclick="currentSlide(4)"
+          >
+            <img src="images/image-product-4-thumbnail.jpg" alt="" />
+          </span>
+        </div>
+      </section>
       <!-- Purchase -->
       <section class="purchase-section">
         <h1 class="company-name">Sneaker Company</h1>
-        <h2 class="item-heading">Fall Limited Edition Sneakers</h1>
+        <h2 id="itemName" class="item-heading">Fall Limited Edition Sneakers</h1>
         <p class="item-desc">
           These low-profile sneakers are your perfect casual wear companion. Featuring a 
   durable rubber outer sole, they’ll withstand everything the weather can offer.
         </p>
         <div class="price-container">
           <div class="current-price-container">
-            <span class="price">$125.00</span>
+            <span id="itemPrice" class="price">$125.00</span>
           <span class="discount-label">50%</span>
           </div>     
           <span class="orginal-price">$250.00</span>
@@ -110,7 +197,7 @@
             <input type="number" class="input-field" id="quantityInput" name="quantity" onInput="limitNumberLength(this)" value="0">
             <button class="plus" onclick="changeQauntity(1)"><img src="images/icon-plus.svg" alt=""></button>
         </div>
-        <button class="btn">
+        <button class="btn btn-flex btn-shadow" onclick="addItem()">
           <img src="images/icon-cart.svg" alt="">
           <span> Add to cart</span>
         </button>

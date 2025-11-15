@@ -24,3 +24,64 @@
         margin: 3rem 12.5vw;
     }
 }
+
+@mixin carouselButton {
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        margin-top: -22px;
+        $buttonMargin: 2.2rem;
+        margin-left: $buttonMargin;
+        margin-right: $buttonMargin;
+        background-color: getColor("white");
+        border-radius: 50%;
+        user-select: none;
+        img {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+        &:hover {
+           img {
+            $svg-hover:  brightness(0) saturate(100%) invert(65%) sepia(47%) saturate(5042%) hue-rotate(348deg) brightness(102%) contrast(100%);
+            filter: $svg-hover;
+           }
+        }
+    }
+      .next {
+        right: 0;
+        img {
+            right: 12px;
+        }
+    }
+}
+
+@mixin carouselThumbnails {
+     margin-top: 3.2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 200px;
+    gap: 32px;
+    .image-thumbnail, .expanded-image-thumbnail {
+        &:hover {
+            opacity: 0.8;
+            background-color: getColor('white');
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        &.active {
+            outline: 2px solid getColor("primary");
+            background-color: getColor('white');
+            border-radius: 10px;
+        }
+        
+        img {
+            border-radius: 10px;
+            width: 88px;
+            height: 100%;
+        }
+    }
+}
