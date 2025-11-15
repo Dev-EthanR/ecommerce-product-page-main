@@ -404,6 +404,10 @@ body {
 .container .input-group .minus:hover img, .container .input-group .plus:hover img {
   filter: brightness(0) saturate(100%) invert(87%) sepia(61%) saturate(4921%) hue-rotate(307deg) brightness(100%) contrast(99%);
 }
+.container .input-group .minus:focus, .container .input-group .plus:focus {
+  outline: 2px solid hsl(220, 13%, 13%);
+  outline-offset: -6px;
+}
 .container .input-group .minus {
   margin-bottom: 5px;
 }

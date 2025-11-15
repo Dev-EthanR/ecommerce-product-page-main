@@ -87,6 +87,10 @@
                     filter: $svg-btn-hover;
                 }
             }
+            &:focus {
+                outline: 2px solid getColor('grey-950');
+                outline-offset: -6px;
+            }
         }
         .minus {
             margin-bottom: 5px;

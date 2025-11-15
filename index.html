@@ -26,7 +26,7 @@
         <img src="images/logo.svg" alt="Sneakers Logo" />
         <ul id="navMenu" class="nav-links">
           <button id="menuClose" class="close-btn hidden" onclick="navMenu(false)">
-              <img src="images/icon-close.svg" alt="">
+              <img src="images/icon-close.svg" alt="Close Button">
           </button>
           <li class="nav-item"><a href="#">Collections</a></li>
           <li class="nav-item"><a href="#">Men</a></li>
@@ -37,14 +37,14 @@
       </div>
       <div class="user-nav">
         <div class="cart">
-            <img id="cartBtn" role="button" class="cart-img" src="images/icon-cart.svg" alt="Shopping cart" />
+            <img id="cartBtn" role="button" tabindex="0" class="cart-img" src="images/icon-cart.svg" alt="Shopping cart" />
             <div id="cartQuantity" class="cart-quantity hidden"></div> 
             <div id="cart" class="cart-container hidden">
               <h2 class="cart-title">Cart</h2>
               <div class="line"></div>
               <div id="emptyCart">Your cart is empty.</div>
               <div id="cardContent" class="cart-content">
-                <img class="cart-thumbnail" src="images/image-product-1-thumbnail.jpg" alt="">
+                <img class="cart-thumbnail" src="images/image-product-1-thumbnail.jpg" alt="Shoe Preview One">
                 <div class="cart-text">
                   <p id="itemTitle"></p>
                   <div>
@@ -54,14 +54,14 @@
                   </div>
                 </div>  
                 <button onclick="deleteFromCart()">
-                  <img class="delete-btn" src="images/icon-delete.svg" alt="">
+                  <img class="delete-btn" src="images/icon-delete.svg" alt="remove items from cart">
                 </button>   
               </div>
               <button id="checkoutBtn" class="btn">Checkout</button>
             </div>
         </div>
        
-        <img class="avatar" src="images/image-avatar.png" alt="user avatar" />
+        <img class="avatar" tabindex="0" src="images/image-avatar.png" alt="user avatar" />
       </div>
     </nav>
 
@@ -70,80 +70,84 @@
       <section class="carousel-container">
         <div class="main-image">
           <div class="slideImg slide">
-            <img id="product-1" src="images/image-product-1.jpg" alt="" />
+            <img id="product-1" src="images/image-product-1.jpg" alt="Shoe Preview One" />
           </div>
           <div class="slideImg slide">
-            <img id="product-2" src="images/image-product-2.jpg" alt="" />
+            <img id="product-2" src="images/image-product-2.jpg" alt="Shoe Preview Two" />
           </div>
           <div class="slideImg slide">
-            <img id="product-3" src="images/image-product-3.jpg" alt="" />
+            <img id="product-3" src="images/image-product-3.jpg" alt="Shoe Preview Three" />
           </div>
           <div class="slideImg slide">
-            <img id="product-4" src="images/image-product-4.jpg" alt="" />
+            <img id="product-4" src="images/image-product-4.jpg" alt="Shoe Preview Four" />
           </div>
         </div>
         <a class="prev" onclick="plusSlides(-1)"
-          ><img src="images/icon-previous.svg" alt=""
+          ><img src="images/icon-previous.svg" alt="Next Preview Button"
         /></a>
         <a class="next" onclick="plusSlides(1)">
-          <img src="images/icon-next.svg" alt="" />
+          <img src="images/icon-next.svg" alt="Previous Preview Button" />
         </a>
         <div class="thumbnails-container" id="thumbnails-container">
           <span
             class="image-thumbnail"
             id="thumbnail-1"
+            tabindex="0"
             onclick="currentSlide(1)"
           >
-            <img src="images/image-product-1-thumbnail.jpg" alt="" />
+            <img src="images/image-product-1-thumbnail.jpg" alt="Shoe Thumbnail One" />
           </span>
           <span
             class="image-thumbnail"
             id="thumbnail-2"
+            tabindex="0"
             onclick="currentSlide(2)"
           >
-            <img src="images/image-product-2-thumbnail.jpg" alt="" />
+            <img src="images/image-product-2-thumbnail.jpg" alt="Shoe Thumbnail Two" />
           </span>
           <span
             class="image-thumbnail"
+            tabindex="0"
             id="thumbnail-3"
             onclick="currentSlide(3)"
           >
-            <img src="images/image-product-3-thumbnail.jpg" alt="" />
+            <img src="images/image-product-3-thumbnail.jpg" alt="Shoe Thumbnail Three" />
           </span>
           <span
             class="image-thumbnail"
+            tabindex="0"
             id="thumbnail-4"
             onclick="currentSlide(4)"
           >
-            <img src="images/image-product-4-thumbnail.jpg" alt="" />
+            <img src="images/image-product-4-thumbnail.jpg" alt="Shoe Thumbnail Four" />
           </span>
         </div>
       </section>
       <!-- expanded Carousel -->
       <section id="carosuelExpanded" class="carousel-expanded hidden">
         <button class="closeBtn" onclick="expandedImage(true)">
-          <img src="images/icon-close.svg" alt="">
+          <img src="images/icon-close.svg" alt="Close Expanded Preview button">
         </button>
         <div class="main-image">
 
         <div class="expanded-slideImg slide">
-          <img id="expanded-product-1" src="images/image-product-1.jpg" alt="" />
+          <img id="expanded-product-1" src="images/image-product-1.jpg" alt="Shoe Expanded Preview One" />
         </div>
         <div class="expanded-slideImg slide">
-          <img id="expanded-product-2" src="images/image-product-2.jpg" alt="" />
+          <img id="expanded-product-2" src="images/image-product-2.jpg" alt="Shoe Expanded Preview Two" />
         </div>
         <div class="expanded-slideImg slide">
-          <img id="expanded-product-3" src="images/image-product-3.jpg" alt="" />
+          <img id="expanded-product-3" src="images/image-product-3.jpg" alt="Shoe Expanded Preview Three" />
         </div>
         <div class="expanded-slideImg slide">
-          <img id="expanded-product-4" src="images/image-product-4.jpg" alt="" />
+          <img id="expanded-product-4" src="images/image-product-4.jpg" alt="Shoe Expanded Preview Four" />
         </div>
       </div>
         <a class="prev" onclick="plusSlides(-1)"
-          ><img src="images/icon-previous.svg" alt=""
+          ><img src="images/icon-previous.svg" alt="Next preview button"
         /></a>
         <a class="next" onclick="plusSlides(1)">
-          <img src="images/icon-next.svg" alt="" />
+          <img src="images/icon-next.svg" alt="previous preview button" />
         </a>
         <div class="expanded-thumbnails-container" id="expanded-thumbnails-container">
           <span
@@ -151,28 +155,28 @@
             id="expanded-thumbnail-1"
             onclick="currentSlide(1)"
           >
-            <img src="images/image-product-1-thumbnail.jpg" alt="" />
+            <img src="images/image-product-1-thumbnail.jpg" alt="Shoe Thumbnail One" />
           </span>
           <span
             class="expanded-image-thumbnail"
             id="expanded-thumbnail-2"
             onclick="currentSlide(2)"
           >
-            <img src="images/image-product-2-thumbnail.jpg" alt="" />
+            <img src="images/image-product-2-thumbnail.jpg" alt="Shoe Thumbnail Two" />
           </span>
           <span
             class="expanded-image-thumbnail"
             id="expanded-thumbnail-3"
             onclick="currentSlide(3)"
           >
-            <img src="images/image-product-3-thumbnail.jpg" alt="" />
+            <img src="images/image-product-3-thumbnail.jpg" alt="Shoe Thumbnail Three" />
           </span>
           <span
             class="expanded-image-thumbnail"
             id="expanded-thumbnail-4"
             onclick="currentSlide(4)"
           >
-            <img src="images/image-product-4-thumbnail.jpg" alt="" />
+            <img src="images/image-product-4-thumbnail.jpg" alt="Shoe Thumbnail Four" />
           </span>
         </div>
       </section>
@@ -193,9 +197,9 @@
         </div>
         <div class="cart-adding">
           <div class="input-group">
-            <button  class="minus" onclick="changeQauntity(-1)"><img src="images/icon-minus.svg" alt=""></button>
-            <input type="number" class="input-field" id="quantityInput" name="quantity" onInput="limitNumberLength(this)" value="0">
-            <button class="plus" onclick="changeQauntity(1)"><img src="images/icon-plus.svg" alt=""></button>
+            <button aria-label="add quantity" class="minus" onclick="changeQauntity(-1)"><img src="images/icon-minus.svg" alt=""></button>
+            <input aria-label="quantity" type="number" class="input-field" id="quantityInput" name="quantity" onInput="limitNumberLength(this)" value="0">
+            <button aria-label="remove quantity" class="plus" onclick="changeQauntity(1)"><img src="images/icon-plus.svg" alt=""></button>
         </div>
         <button class="btn btn-flex btn-shadow" onclick="addItem()">
           <img src="images/icon-cart.svg" alt="">
