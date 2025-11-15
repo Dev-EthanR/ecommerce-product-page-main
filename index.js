@@ -31,7 +31,6 @@ function showSlides(currentSlide) {
     let slides = document.getElementsByClassName(`${isExpanded}slideImg`);
     let thumbnail = document.getElementsByClassName(`${isExpanded}image-thumbnail`);
     
-    console.log(slides, thumbnail)
     if(currentSlide > slides.length) slideIndex = 1;
     if(currentSlide < 1) slideIndex = slides.length;
     for(let i = 0; i < slides.length; i++) {
